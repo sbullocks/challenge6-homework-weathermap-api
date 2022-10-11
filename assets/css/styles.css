@@ -1,0 +1,26 @@
+h1 {
+	background-color: blueviolet;
+	text-align: center;
+}
+
+label {
+	border: 2px red solid;
+	font-weight: bolder;
+	font-size: 23px;
+}
+
+.colOne {
+	border: 2px red solid;
+	background-color: white;
+}
+
+.colTwo {
+	border: 2px rgb(0, 4, 255) solid;
+	background-color: white;
+}
+
+.card { 
+	border: 2px rgb(38, 0, 255) solid;
+	margin: 10px;
+}
+
