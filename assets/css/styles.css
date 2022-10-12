@@ -4,8 +4,7 @@ h1 {
 }
 
 label {
-	border: 2px red solid;
-	/* margin-top: 10px; */
+	/* border: 2px red solid; */
 	font-weight: bolder;
 	font-size: 23px;
 }
@@ -29,25 +28,33 @@ label {
 	margin-top: 5px;
 	margin-bottom: 5px;
 }
-.green{
+
+/* Colors for UV Index */
+.green {
   background-color: lightgreen;
 }
-.yellow{
+
+.yellow {
   background-color: yellow;
 }
-.orange{
+
+.orange {
   background-color: orange;
 }
-.red{
+
+.red {
   background-color: red;
 }
-.purple{
+
+.purple {
   background-color: purple;
-}
+} 
+
 .icons {
 	height: 70px;
 	width: 70px;
 }
+
 .cardTodayDate {
 	font-size: 20px;
 }
