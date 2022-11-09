@@ -24,7 +24,7 @@ label {
 	margin: 10px;
 }
 
-.histBtnRow {
+.pastRecordsBtnRow {
 	margin-top: 5px;
 	margin-bottom: 5px;
 }
@@ -50,11 +50,11 @@ label {
   background-color: purple;
 } 
 
-.icons {
+.image {
 	height: 70px;
 	width: 70px;
 }
 
-.cardTodayDate {
+.cardCurrentDay {
 	font-size: 20px;
 }
