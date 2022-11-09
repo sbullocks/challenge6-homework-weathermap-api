@@ -105,7 +105,11 @@ function showCurrentWeather() {
     var cityLatitude = response.coord.lat;
     // console.log(cityLatitude);
 
-    var getUvi = `https://api.openweathermap.org/data/2.5/onecall?lat=${cityLatitude}&lon=${cityLongitude}&exclude=hourly,daily,minutely&appid=${apiKey}`;
+    var getUvi = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=${apiKey}`
+    // `https://api.openweathermap.org/data/2.5/onecall?lat=${cityLatitude}&lon=${cityLongitude}&exclude=hourly,daily,minutely&appid=${apiKey}`;
+    // console log to see what is returned. should be lat/long.
+    // store in varialbe to use in another API call. get lat/long and feed into 5 day forecast.
+    // need to get 5 day forecast to display.
 
     $.ajax({
       url: getUvi,
