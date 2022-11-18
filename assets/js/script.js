@@ -14,7 +14,9 @@ var locationSearch = [];
 // Saves the text value of the search & saves it to an array in storage.
 $(".search").on("click", function (event) {
   event.preventDefault();
-  city = $(this).parent(".btnPar").siblings(".textVal").val().trim();
+  // city = $(this).parent(".btnPar").siblings(".textVal").val().trim();
+  city = $('.textVal').val();
+  console.log(city);
   if (city === "") {
     return;
   }
@@ -54,6 +56,9 @@ function pastRecords() {
   });
 }
 
+// Displays after initial search.
+var weeklyForecastEl = $(".weeklyForecast");
+
 // Main body card for city searched.
 var currentDayBody = $(".currentDayCard");
 
@@ -66,12 +71,19 @@ function showCurrentWeather() {
 //   var getWeeklyForecast = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${apiKey}`
  // https://api.openweathermap.org/data/3.0/onecall?lat={lat}&lon={lon}&exclude={part}&appid={apiKey};
 
+ var geoTag = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=${apiKey}`;
+
+ function geoLocation () {
+  
+ }
+
   $(currentDayBody).empty();
 
   $.ajax({
     url: getWeeklyForecast,
     method: "GET",
   }).then(function (response) {
+    console.log(response);
     $(".currentDayCity").text(response.name);
     $(".cardCurrentDay").text(day);
 
@@ -137,8 +149,6 @@ function showCurrentWeather() {
   getFiveDayForecast();
 }
 
-var weeklyForecastEl = $(".weeklyForecast");
-
 function getFiveDayForecast() {
   var weekForecast = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=imperial&appid=${apiKey}`;
 
@@ -146,8 +156,10 @@ function getFiveDayForecast() {
     url: weekForecast,
     method: "GET",
   }).then(function (response) {
+    console.log(response);
     var dailyLineup = response.list;
     var liveWeather = [];
+    console.log(dailyLineup);
 
     // Object that allows for easier data read.
     $.each(dailyLineup, function (index, value) {
@@ -164,6 +176,7 @@ function getFiveDayForecast() {
         liveWeather.push(whatchamacallit);
       }
     });
+    console.log(liveWeather);
 
     // Adds the cards to the screen
     for (let i = 0; i < liveWeather.length; i++) {
@@ -171,6 +184,7 @@ function getFiveDayForecast() {
       divElCard.attr("class", "card text-white bg-primary mb-3 cardOne");
       divElCard.attr("style", "max-width: 200px;");
       weeklyForecastEl.append(divElCard);
+      console.log(weeklyForecastEl);
 
       var divElHeader = $("<div>");
       divElHeader.attr("class", "card-header");
@@ -201,6 +215,7 @@ function getFiveDayForecast() {
       // Displays the Humidity on 5 day forecast cards.
       var humidEl = $("<p>").text(`Humidity: ${liveWeather[i].humidity} %`);
       divElBody.append(humidEl);
+      console.log(divElCard);
     }
   });
 }
