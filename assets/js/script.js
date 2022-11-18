@@ -32,13 +32,16 @@ $(".search").on("click", function (event) {
 var pastRecordsEl = $(".locationSearch");
 function pastRecords() {
   pastRecordsEl.empty();
+  console.log("pastRecords", locationSearch); //shows all the past records in the log but not being appended.
 
   for (let i = 0; i < locationSearch.length; i++) {
+    console.log(i);
     var rowEl = $("<row>");
     var btnEl = $("<button>").text(`${locationSearch[i]}`);
 
     rowEl.addClass("row pastRecordsBtnRow");
     btnEl.addClass("btn btn-outline-secondary pastRecordsBtn");
+    console.log(rowEl, btnEl);
     btnEl.attr("type", "button");
 
     pastRecordsEl.prepend(rowEl);

@@ -25,6 +25,7 @@ label {
 }
 
 .pastRecordsBtnRow {
+	border: 2px blue solid; 
 	margin-top: 5px;
 	margin-bottom: 5px;
 }
